@@ -1,23 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface VariableState {
-  domainName:string;
+  domainName: string;
+  showSearchBar: boolean;
 }
 
 const initialState: VariableState = {
-  domainName:"algoTate."
+  domainName: "algoTate.",
+  showSearchBar: false
 };
 
 const variableSlice = createSlice({
   name: "variable",
   initialState,
   reducers: {
-    // setValue(state, action) {
-    //   state.value = action.payload;
-    // },
-
+    toggleSearchBar: (state) => {
+      state.showSearchBar = !state.showSearchBar;
+    },
+    showSearchBar: (state) => {
+      state.showSearchBar = true;
+    },
+    hideSearchBar: (state) => {
+      state.showSearchBar = false;
+    },
+    setDomainName: (state, action) => {
+      state.domainName = action.payload;
+    }
   },
 });
 
-export const { } = variableSlice.actions;
+export const { toggleSearchBar, showSearchBar, hideSearchBar, setDomainName } = variableSlice.actions;
 export default variableSlice.reducer;

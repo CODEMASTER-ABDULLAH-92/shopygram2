@@ -371,3 +371,297 @@ export const blogData = [
   image: Blog4
 },
 ]
+
+
+
+
+
+
+// data/mockDeals.ts
+import { Deal } from '@/app/types/deals';
+
+export const mockDeals: Deal[] = [
+  // Flash Deals
+  {
+    id: '1',
+    title: 'Wireless Noise Cancelling Headphones',
+    description: 'Premium sound quality with active noise cancellation',
+    price: 99.99,
+    originalPrice: 199.99,
+    discount: 50,
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400',
+    brand: 'AudioTech',
+    category: 'electronics',
+    affiliateUrl: 'https://example.com/affiliate/1',
+    type: 'flash',
+    endTime: '2024-12-31T23:59:59',
+    rating: 4.5,
+    reviewCount: 1247
+  },
+  {
+    id: '2',
+    title: 'Smart Fitness Watch Series 5',
+    description: 'Track your health and fitness with advanced sensors',
+    price: 149.99,
+    originalPrice: 249.99,
+    discount: 40,
+    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400',
+    brand: 'FitGear',
+    category: 'electronics',
+    affiliateUrl: 'https://example.com/affiliate/2',
+    type: 'flash',
+    endTime: '2024-12-31T18:30:00',
+    rating: 4.3,
+    reviewCount: 892
+  },
+
+  // Today's Deals
+  {
+    id: '3',
+    title: 'Organic Coffee Bundle',
+    description: 'Premium organic coffee beans from Ethiopia',
+    price: 29.99,
+    originalPrice: 49.99,
+    discount: 40,
+    image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400',
+    brand: 'CoffeeRoasters',
+    category: 'food',
+    affiliateUrl: 'https://example.com/affiliate/3',
+    type: 'daily',
+    rating: 4.7,
+    reviewCount: 356
+  },
+
+  // Special Promotions
+  {
+    id: '4',
+    title: 'Limited Edition Perfume Set',
+    description: 'Exclusive fragrance collection for the season',
+    price: 79.99,
+    originalPrice: 129.99,
+    discount: 38,
+    image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400',
+    brand: 'LuxuryScents',
+    category: 'beauty',
+    affiliateUrl: 'https://example.com/affiliate/4',
+    type: 'promotion',
+    rating: 4.4,
+    reviewCount: 223
+  },
+
+  // Bundle Offers
+  {
+    id: '5',
+    title: 'Gaming Console Ultimate Bundle',
+    description: 'Console + 3 Games + Extra Controller',
+    price: 399.99,
+    originalPrice: 599.99,
+    discount: 33,
+    image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400',
+    brand: 'GameMax',
+    category: 'gaming',
+    affiliateUrl: 'https://example.com/affiliate/5',
+    type: 'bundle',
+    items: 5,
+    rating: 4.8,
+    reviewCount: 1567
+  },
+
+  // Clearance Section
+  {
+    id: '6',
+    title: 'Last Season Smartphone',
+    description: 'Previous generation flagship phone',
+    price: 299.99,
+    originalPrice: 699.99,
+    discount: 57,
+    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400',
+    brand: 'PhoneTech',
+    category: 'electronics',
+    affiliateUrl: 'https://example.com/affiliate/6',
+    type: 'clearance',
+    rating: 4.2,
+    reviewCount: 2890
+  },
+  // Add more deals as needed...
+];
+
+
+
+// data/mockUserData.ts
+import { User, UserPreferences, WishlistItem, RecentlyViewed, Comparison, NotificationPreference } from '../types';
+
+export const mockUser: User = {
+  id: '1',
+  name: 'Alex Johnson',
+  email: 'alex.johnson@example.com',
+  avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150',
+  joinedDate: '2023-01-15'
+};
+
+export const mockUserPreferences: UserPreferences = {
+  emailNotifications: true,
+  pushNotifications: false,
+  dealAlerts: true,
+  newsletter: true,
+  productUpdates: false
+};
+
+export const mockNotificationPreferences: NotificationPreference[] = [
+  {
+    id: '1',
+    type: 'email',
+    name: 'Email Notifications',
+    description: 'Receive deals and updates via email',
+    enabled: true
+  },
+  {
+    id: '2',
+    type: 'push',
+    name: 'Push Notifications',
+    description: 'Get instant notifications in your browser',
+    enabled: false
+  },
+  {
+    id: '3',
+    type: 'browser',
+    name: 'Browser Notifications',
+    description: 'Allow notifications from this website',
+    enabled: true
+  }
+];
+
+
+
+
+
+
+// data/aboutData.ts
+import { TeamMember, TrustFactor, Value } from '../types/about';
+
+export const missionData = {
+  mission: "To simplify online shopping by connecting consumers with the best products through honest, transparent affiliate recommendations.",
+  vision: "Creating a trusted platform where shoppers can discover amazing products while supporting content creators through fair affiliate partnerships.",
+  story: `ShopyGram was born from a simple observation: online shopping has become overwhelming. With countless options and biased reviews, consumers struggle to find genuine recommendations.
+
+Our journey began in 2023 when our founder, Sarah Chen, grew frustrated with the lack of transparent product comparisons. What started as a personal blog sharing honest reviews has evolved into a comprehensive platform trusted by millions.
+
+We believe in the power of authentic recommendations and the importance of maintaining trust with our community. Every product featured on ShopyGram goes through rigorous evaluation, and we're committed to providing unbiased, valuable insights to help you make informed purchasing decisions.`
+};
+
+export const trustFactors: TrustFactor[] = [
+  {
+    icon: '🔍',
+    title: 'Transparent Reviews',
+    description: 'All our reviews are honest and unbiased. We clearly disclose affiliate relationships and never let commissions influence our ratings.',
+    stat: '10K+'
+  },
+  {
+    icon: '🛡️',
+    title: 'Secure & Trusted',
+    description: 'We partner only with reputable merchants and ensure all affiliate links are safe and secure for our users.',
+    stat: '100%'
+  },
+  {
+    icon: '💎',
+    title: 'Quality Curated',
+    description: 'Every product is carefully selected and tested. We feature only the best options across each category.',
+    stat: '500+'
+  },
+  {
+    icon: '💰',
+    title: 'Best Deals',
+    description: 'We constantly monitor prices to bring you the latest deals and discounts from top brands.',
+    stat: '24/7'
+  },
+  {
+    icon: '🚀',
+    title: 'Fast Support',
+    description: 'Our dedicated support team is here to help with any questions about products or purchases.',
+    stat: '<2h'
+  },
+  {
+    icon: '🌱',
+    title: 'Community First',
+    description: 'We grow with our community. Your feedback directly shapes which products we review and feature.',
+    stat: '1M+'
+  }
+];
+
+export const values: Value[] = [
+  {
+    title: 'Transparency',
+    description: 'We believe in complete honesty about our affiliate relationships and never hide our business model.',
+    icon: '🔍'
+  },
+  {
+    title: 'Quality',
+    description: 'Every recommendation is thoroughly researched and tested to meet our high standards.',
+    icon: '⭐'
+  },
+  {
+    title: 'User First',
+    description: 'Our users needs always come first. We prioritize genuine value over maximum commissions.',
+    icon: '❤️'
+  },
+  {
+    title: 'Innovation',
+    description: 'We continuously improve our platform to provide better shopping experiences and tools.',
+    icon: '💡'
+  }
+];
+
+export const teamMembers: TeamMember[] = [
+  {
+    id: '1',
+    name: 'Sarah Chen',
+    role: 'Founder & CEO',
+    bio: 'Former e-commerce product manager with 8+ years of experience in digital retail and consumer behavior.',
+    image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400',
+    social: {
+      linkedin: '#',
+      twitter: '#'
+    }
+  },
+  {
+    id: '2',
+    name: 'Marcus Rodriguez',
+    role: 'Head of Product',
+    bio: 'Product specialist focused on creating seamless shopping experiences and building trusted relationships.',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400',
+    social: {
+      linkedin: '#',
+      twitter: '#'
+    }
+  },
+  {
+    id: '3',
+    name: 'Priya Patel',
+    role: 'Content Director',
+    bio: 'Content strategist dedicated to creating honest, valuable product reviews and buying guides.',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400',
+    social: {
+      linkedin: '#',
+      twitter: '#'
+    }
+  },
+  {
+    id: '4',
+    name: 'David Kim',
+    role: 'Tech Lead',
+    bio: 'Full-stack developer passionate about building scalable platforms that serve millions of users.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
+    social: {
+      linkedin: '#',
+      twitter: '#'
+    }
+  }
+];
+
+export const milestones = [
+  { year: '2023', event: 'ShopyGram founded with a mission to simplify online shopping' },
+  { year: '2023', event: 'Reached 10,000 monthly active users' },
+  { year: '2024', event: 'Launched mobile app and expanded to 50+ product categories' },
+  { year: '2024', event: 'Partnered with 500+ trusted brands and merchants' },
+  { year: '2024', event: 'Surpassed 1 million products reviewed and curated' }
+];

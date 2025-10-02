@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 
- import OurStory from "./Components/OurStory";
+import OurStory from "./Components/OurStory";
 import Card from "./Components/Card";
 import BestSeller from "./Components/BestSeller";
 import Footer from "./Components/Footer";
@@ -18,11 +18,30 @@ import Testimonilas from "./Components/Testimonilas";
 import Blogs from "./Components/Blogs";
 import Services from "./Components/Services";
 import Pictures from "./Components/Pictures";
+import SearchBar from "./Components/SearchBar";
+import { useSelector } from "react-redux";
+import Categories from "./Components/QuickLinks";
+import TrendingProductsCarousel from "./Components/Carousel";
+import NewsletterSignupCompact from "./Components/NewsLetter";
 export default function Home() {
   const imgRef = useRef(null);
+  const searchBarRef = useRef(null);
   const [count, setCount] = useState<number>(0);
   const [fade, setFade] = useState(false);
-
+  const showSearch = useSelector((state) => state.variable.showSearchBar);
+useGSAP(() => {
+  gsap.fromTo(searchBarRef.current, {
+    opacity: 0,
+    scale: 0.8,
+  }, {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power2.out",
+    clearProps: "all" // Clean up inline styles
+  })
+})
   useEffect(() => {
     setFade(true);
     const timeout = setTimeout(() => setFade(false), 200);
@@ -32,16 +51,16 @@ export default function Home() {
   useGSAP(() => {
     gsap.fromTo(
       imgRef.current,
-      { 
+      {
         scale: 1.2, // Reduced initial scale for better effect
         opacity: 0,
-        transformOrigin: "center center" // Ensure scaling from center
+        transformOrigin: "center center", // Ensure scaling from center
       },
-      { 
-        scale: 1, 
-        opacity: 1, 
-        duration: 1.2, 
-        ease: "power3.out" 
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power3.out",
       }
     );
   }, []);
@@ -87,6 +106,11 @@ export default function Home() {
           sizes="100vw"
           priority // Ensure first image loads quickly
         />
+        {showSearch && (
+          <div ref={searchBarRef} className="flex flex-1 h-96 justify-center items-center">
+            <SearchBar />
+          </div>
+        )}
 
         {/* Foreground Content */}
         <div className="absolute bottom-10 mx-10 gap-20 flex items-end z-10">
@@ -129,21 +153,20 @@ export default function Home() {
           </div>
         </div>
       </section>
-       <OurStory />
-       <BestSeller/>
-       <NewProduct/>
-       <DiscoverCollection/>
-       <RefineCasual/>
-       <Testimonilas/>
-       <Blogs/>
-       <Services/>
-       <Pictures/>
-       <Footer/>
+
+      <OurStory />
+      <Categories/>
+      <BestSeller />
+      <NewProduct />
+      <DiscoverCollection />
+      <RefineCasual />
+      <Testimonilas />
+      <Blogs />
+      <Services />
+      <Pictures />
+<TrendingProductsCarousel/>
+<NewsletterSignupCompact/>
+      <Footer />
     </div>
   );
 }
-
-
-
-
-

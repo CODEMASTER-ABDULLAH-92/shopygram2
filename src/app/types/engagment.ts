@@ -1,0 +1,29 @@
+// types/engagement.ts
+import { Product } from './product';
+
+export interface WishlistItem {
+  id: string;
+  product: Product;
+  addedAt: string;
+}
+
+export interface RecentlyViewed {
+  id: string;
+  product: Product;
+  viewedAt: string;
+}
+
+export interface Comparison {
+  id: string;
+  products: Product[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface NotificationPreference {
+  id: string;
+  type: 'email' | 'push' | 'browser';
+  name: string;
+  description: string;
+  enabled: boolean;
+}

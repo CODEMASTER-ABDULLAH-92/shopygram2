@@ -37,6 +37,7 @@ const BestSeller = () => {
       )}
 
       {/* The BestSeller section */}
+      {/* Quick Links → Categories (grid/cards) */}
       <div ref={sectionRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {bestSeller.map((item, index) => (
           <Card
