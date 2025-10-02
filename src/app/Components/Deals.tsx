@@ -1,4 +1,4 @@
-// components/DealCard.tsx
+
 import React from 'react';
 import { Deal } from '../types/deals';
 import { CountdownTimer } from './CountdownTimer';

@@ -1,6 +1,6 @@
 // components/comparison/ComparisonSection.tsx
 import React from 'react';
-import { Comparison } from '../../types/engagement';
+import { Comparison } from '../types/engagment';
 
 interface ComparisonSectionProps {
   comparisons: Comparison[];

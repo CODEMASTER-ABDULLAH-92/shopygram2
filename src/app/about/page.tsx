@@ -1,4 +1,4 @@
-// app/about/page.tsx
+"use client";
 import React from 'react';
 import { MissionStory } from '@/app/Components/about/AboutMission';
 import { TrustFactors } from '@/app/Components/about/TrustFactor';

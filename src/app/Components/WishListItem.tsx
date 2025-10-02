@@ -1,6 +1,6 @@
 // components/wishlist/WishlistItem.tsx
 import React from 'react';
-import { WishlistItem as WishlistItemType } from '../../types/engagement';
+import { WishlistItem as WishlistItemType } from '../types/engagment';
 
 interface WishlistItemProps {
   item: WishlistItemType;

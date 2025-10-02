@@ -1,7 +1,7 @@
 // components/ProductCard.tsx
 import React from 'react';
-import { Product, ViewMode } from '../types';
-
+import {  ViewMode } from '../lib/types';
+import { Product } from '../lib/types';
 interface ProductCardProps {
   product: Product;
   viewMode: ViewMode;

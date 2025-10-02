@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import Card from "../Components/Card";
 import BestSellerNav from "../Components/BestSellerNav";

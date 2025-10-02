@@ -1,6 +1,6 @@
 // components/recently-viewed/RecentlyViewedSection.tsx
 import React from 'react';
-import { RecentlyViewed as RecentlyViewedType } from '../../types/engagement';
+import { RecentlyViewed as RecentlyViewedType } from '../types/engagment';
 
 interface RecentlyViewedSectionProps {
   items: RecentlyViewedType[];

@@ -9,7 +9,7 @@ import m8 from "../../../public/m8.png";
 import m9 from "../../../public/m9.jpeg";
 import m10 from "../../../public/m10.png";
 import Image from "next/image";
-import Link from "next/link";
+
 
 const Pictures = () => {
 

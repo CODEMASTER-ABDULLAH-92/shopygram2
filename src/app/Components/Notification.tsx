@@ -1,4 +1,4 @@
-// components/notifications/NotificationPreferences.tsx
+"use client";
 import React from 'react';
 import { NotificationPreference } from '../../types/engagement';
 
