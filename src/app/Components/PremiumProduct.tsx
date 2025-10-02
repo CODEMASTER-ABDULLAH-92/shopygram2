@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { PremiumProduct } from '../types/premiumProduct';
+import Image from 'next/image';
 
 interface PremiumProductCardProps {
   product: PremiumProduct;
@@ -53,7 +54,7 @@ const PremiumProductCard: React.FC<PremiumProductCardProps> = ({ product }) => {
 
       {/* Product Image */}
       <div className="relative h-80 bg-gray-100 overflow-hidden">
-        <img 
+        <Image
           src={product.images[currentImageIndex]} 
           alt={product.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

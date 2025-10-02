@@ -8,7 +8,7 @@ import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 
 import OurStory from "./Components/OurStory";
-import Card from "./Components/Card";
+// import Card from "./Components/Card";
 import BestSeller from "./Components/BestSeller";
 import Footer from "./Components/Footer";
 import NewProduct from "./Components/NewProduct";

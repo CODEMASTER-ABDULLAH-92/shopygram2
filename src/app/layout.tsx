@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import ReactLenis from "lenis/react";
+// import "./globals.css";
+// import ReactLenis from "lenis/react";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {

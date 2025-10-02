@@ -2,6 +2,7 @@
 import React from 'react';
 import {  ViewMode } from '../lib/types';
 import { Product } from '../lib/types';
+import Image from 'next/image';
 interface ProductCardProps {
   product: Product;
   viewMode: ViewMode;
@@ -31,7 +32,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode }) =
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md transition-shadow">
         <div className="flex space-x-4">
           <div className="flex-shrink-0">
-            <img
+            <Image
               src={product.image}
               alt={product.title}
               className="w-32 h-32 object-cover rounded-lg"
@@ -85,7 +86,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, viewMode }) =
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md transition-shadow">
       <div className="relative">
-        <img
+        <Image
           src={product.image}
           alt={product.title}
           className="w-full h-48 object-cover rounded-lg mb-4"

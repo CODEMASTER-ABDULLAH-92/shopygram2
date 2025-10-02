@@ -1,6 +1,7 @@
 // components/comparison/ComparisonSection.tsx
 import React from 'react';
 import { Comparison } from '../types/engagment';
+import Image from 'next/image';
 
 interface ComparisonSectionProps {
   comparisons: Comparison[];
@@ -62,7 +63,7 @@ export const ComparisonSection: React.FC<ComparisonSectionProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {comparison.products.map((product) => (
                 <div key={product.id} className="border border-gray-200 rounded-lg p-4">
-                  <img
+                  <Image
                     src={product.image}
                     alt={product.title}
                     className="w-full h-32 object-cover rounded-lg mb-3"

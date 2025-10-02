@@ -1,6 +1,7 @@
 // components/wishlist/WishlistItem.tsx
 import React from 'react';
 import { WishlistItem as WishlistItemType } from '../types/engagment';
+import Image from 'next/image';
 
 interface WishlistItemProps {
   item: WishlistItemType;
@@ -35,7 +36,7 @@ export const WishlistItem: React.FC<WishlistItemProps> = ({
     <div className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
       <div className="flex space-x-4">
         <div className="flex-shrink-0">
-          <img
+          <Image
             src={item.product.image}
             alt={item.product.title}
             className="w-20 h-20 object-cover rounded-lg"

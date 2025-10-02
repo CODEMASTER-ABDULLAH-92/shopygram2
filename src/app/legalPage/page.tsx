@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from 'react';
 
-const page = () => {
+const Page = () => {
     
-    const [activeSection, setActiveSection] = useState('privacy');
+  const [activeSection, setActiveSection] = useState('privacy');
   const legalSections = {
     privacy: {
       title: "Privacy Policy",
@@ -109,7 +109,7 @@ const page = () => {
         },
         {
           heading: "Essential Cookies",
-          text: "These cookies are necessary for the website to function properly. They enable basic functions like page navigation and access to secure areas of the website."
+          text: "These cookies are necessary for the website to function properly. They enable basic functions like Page navigation and access to secure areas of the website."
         },
         {
           heading: "Analytics Cookies",
@@ -242,4 +242,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

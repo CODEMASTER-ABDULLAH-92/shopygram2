@@ -2,6 +2,7 @@
 import React from 'react';
 import { Deal } from '../types/deals';
 import { CountdownTimer } from './CountdownTimer';
+import Image from 'next/image';
 
 interface DealCardProps {
   deal: Deal;
@@ -30,7 +31,7 @@ export const DealCard: React.FC<DealCardProps> = ({ deal, variant = 'default' })
     return (
       <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
         <div className="relative">
-          <img
+          <Image
             src={deal.image}
             alt={deal.title}
             className="w-full h-64 object-cover"
@@ -88,7 +89,7 @@ export const DealCard: React.FC<DealCardProps> = ({ deal, variant = 'default' })
   return (
     <div className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300">
       <div className="relative">
-        <img
+        <Image
           src={deal.image}
           alt={deal.title}
           className="w-full h-48 object-cover"

@@ -1,6 +1,7 @@
 // components/recently-viewed/RecentlyViewedSection.tsx
 import React from 'react';
 import { RecentlyViewed as RecentlyViewedType } from '../types/engagment';
+import Image from 'next/image';
 
 interface RecentlyViewedSectionProps {
   items: RecentlyViewedType[];
@@ -42,7 +43,7 @@ export const RecentlyViewedSection: React.FC<RecentlyViewedSectionProps> = ({
         {items.slice(0, 6).map((item) => (
           <div key={item.id} className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow">
             <div className="relative">
-              <img
+              <Image
                 src={item.product.image}
                 alt={item.product.title}
                 className="w-full h-40 object-cover rounded-lg mb-3"

@@ -9,6 +9,7 @@ import { NotificationPreferences } from '@/app/Components/Notification';
 import { mockUser, mockNotificationPreferences } from '../../../../public/assets';
 
 import { Comparison } from '@/app/types/engagment';
+import Image from 'next/image';
 // Mock data for the dashboard
 const mockWishlist: WishlistItem[] = [
   {
@@ -142,7 +143,7 @@ export default function UserDashboard() {
                 <p className="font-medium text-gray-900">{mockUser.name}</p>
                 <p className="text-sm text-gray-600">{mockUser.email}</p>
               </div>
-              <img
+              <Image
                 src={mockUser.avatar}
                 alt={mockUser.name}
                 className="w-12 h-12 rounded-full"

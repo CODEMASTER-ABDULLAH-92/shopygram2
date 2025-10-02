@@ -204,7 +204,7 @@ const CategoryPage: React.FC = () => {
   }, [categoryType]);
 
   const filteredAndSortedProducts = useMemo(() => {
-    let filtered = categoryProducts.filter(product => {
+    const filtered = categoryProducts.filter(product => {
       const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
       const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1];
       const matchesRating = product.rating >= minRating;

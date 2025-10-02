@@ -36,7 +36,7 @@ export default function DealsPage() {
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">Deals & Discounts</h1>
             <p className="text-xl opacity-90">
-              Don't miss out on these amazing offers! Limited time deals waiting for you.
+              Don`t miss out on these amazing offers! Limited time deals waiting for you.
             </p>
           </div>
         </div>
