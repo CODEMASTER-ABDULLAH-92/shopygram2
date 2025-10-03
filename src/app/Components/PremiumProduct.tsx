@@ -55,6 +55,7 @@ const PremiumProductCard: React.FC<PremiumProductCardProps> = ({ product }) => {
       {/* Product Image */}
       <div className="relative h-80 bg-gray-100 overflow-hidden">
         <Image
+        fill
           src={product.images[currentImageIndex]} 
           alt={product.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

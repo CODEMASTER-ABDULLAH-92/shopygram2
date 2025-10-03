@@ -7,6 +7,7 @@ import LowerNav from "@/app/Components/LowerNav";
 import Image from "next/image";
 import { Check, Minus, Plus } from "lucide-react";
 import Footer from "@/app/Components/Footer";
+import { WhatsAppWidget } from "@/app/Components/Contact/WhatsappWidget";
 
 const Page = () => {
   const { id } = useParams();
@@ -52,8 +53,10 @@ const Page = () => {
 
   return (
     <div className="min-h-full bg-white relative">
+      <div className="space-y-4 sticky top-8 z-40">
       <UpperNav />
       <LowerNav />
+      </div>
 
       {/* Product Container */}
       <div className="flex flex-col md:flex-row gap-6 mt-10 p-6 max-w-7xl mx-auto relative">
@@ -239,6 +242,7 @@ const Page = () => {
             </button>
           </div>
         </div>
+        <WhatsAppWidget/>
       </div>
       <Footer/>
     </div>

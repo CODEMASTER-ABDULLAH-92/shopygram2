@@ -37,6 +37,7 @@ export const WishlistItem: React.FC<WishlistItemProps> = ({
       <div className="flex space-x-4">
         <div className="flex-shrink-0">
           <Image
+          fill
             src={item.product.image}
             alt={item.product.title}
             className="w-20 h-20 object-cover rounded-lg"
