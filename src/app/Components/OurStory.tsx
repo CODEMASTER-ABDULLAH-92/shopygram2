@@ -5,7 +5,7 @@ import story from "../../../public/story.avif";
 
 const OurStory = () => {
   return (
-    <div className="relative w-screen min-h-screen">
+    <div className="relative w-screen overflow-hidden min-h-screen">
       {/* Background Image */}
       <Image
         src={story}
@@ -16,7 +16,7 @@ const OurStory = () => {
       />
 
       {/* Overlay Content */}
-      <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6 bg-black/40">
+      <div className="absolute inset-0 flex flex-col justify-center items-center text-center bg-black/40">
         <h1 className="text-4xl md:text-6xl font-medium text-white drop-shadow-lg">
           Our Story, Your Style
         </h1>

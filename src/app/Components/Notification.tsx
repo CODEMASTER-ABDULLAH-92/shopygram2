@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { NotificationPreference } from '../../types/engagement';
+import { NotificationPreference } from '../types/engagment';
 
 interface NotificationPreferencesProps {
   preferences: NotificationPreference[];

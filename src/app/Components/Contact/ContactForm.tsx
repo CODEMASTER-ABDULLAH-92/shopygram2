@@ -53,7 +53,7 @@ export const ContactForm: React.FC = () => {
         <div className="text-green-500 text-6xl mb-4">✓</div>
         <h3 className="text-xl font-semibold text-green-800 mb-2">Message Sent Successfully!</h3>
         <p className="text-green-700 mb-4">
-          Thank you for contacting us. We'll get back to you within 24 hours.
+          Thank you for contacting us. We` ll get back to you within 24 hours.
         </p>
         <button
           onClick={() => setIsSubmitted(false)}

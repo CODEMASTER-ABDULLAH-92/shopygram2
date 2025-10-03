@@ -20,6 +20,7 @@ export const TeamSection: React.FC = () => {
               <Image
                 src={member.image}
                 alt={member.name}
+                fill
                 className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
               />
               <h3 className="text-lg font-semibold text-gray-900 mb-1">{member.name}</h3>
