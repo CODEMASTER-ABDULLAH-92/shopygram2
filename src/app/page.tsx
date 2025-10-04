@@ -1,4 +1,5 @@
 "use client";
+import { useSelector } from "react-redux";
 import UpperNav from "./Components/UpperNav";
 import LowerNav from "./Components/LowerNav";
 import { data } from "../../public/assets";
@@ -18,17 +19,20 @@ import Blogs from "./Components/Blogs";
 import Services from "./Components/Services";
 import Pictures from "./Components/Pictures";
 import SearchBar from "./Components/SearchBar";
-import { useSelector } from "react-redux";
+
 import Categories from "./Components/QuickLinks";
 import TrendingProductsCarousel from "./Components/Carousel";
 import NewsletterSignupCompact from "./Components/NewsLetter";
+import type { RootState } from "@/app/lib/store"; // adjust path
 
 export default function Home() {
   const imgRef = useRef(null);
   const searchBarRef = useRef(null);
   const [count, setCount] = useState<number>(0);
   const [fade, setFade] = useState(false);
-  const showSearch = useSelector((state) => state.variable.showSearchBar);
+
+
+const showSearch = useSelector((state: RootState) => state.variable.showSearchBar);
 
   useGSAP(() => {
     gsap.fromTo(
