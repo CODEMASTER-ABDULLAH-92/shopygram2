@@ -1,4 +1,3 @@
-// components/comparison/ComparisonSection.tsx
 import React from 'react';
 import { Comparison } from '../types/engagment';
 import Image from 'next/image';

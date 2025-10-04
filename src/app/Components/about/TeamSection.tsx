@@ -1,4 +1,3 @@
-// components/about/TeamSection.tsx
 import React from 'react';
 import { teamMembers } from '../../../../public/assets';
 import Image from 'next/image';

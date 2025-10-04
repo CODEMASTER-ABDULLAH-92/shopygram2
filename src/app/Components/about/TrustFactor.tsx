@@ -1,4 +1,3 @@
-// components/about/TrustFactors.tsx
 import React from 'react';
 import { trustFactors } from '../../../../public/assets';
 

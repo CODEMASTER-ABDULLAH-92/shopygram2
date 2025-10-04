@@ -1,6 +1,6 @@
 // components/ViewToggle.tsx
 import React from 'react';
-import { ViewMode } from '../types';
+import { ViewMode } from '@/app/lib/types';
 
 interface ViewToggleProps {
   viewMode: ViewMode;

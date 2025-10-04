@@ -1,4 +1,3 @@
-// components/about/Values.tsx
 import React from 'react';
 import { values } from '../../../../public/assets';
 

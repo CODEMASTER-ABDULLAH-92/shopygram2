@@ -1,4 +1,3 @@
-// components/contact/SupportOptions.tsx
 "use client";
 import React from 'react';
 import { SupportOption } from '../../types/contact';

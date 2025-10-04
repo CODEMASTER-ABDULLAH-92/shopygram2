@@ -1,9 +1,20 @@
 import { Product } from "../lib/types";
+
 export interface WishlistItem {
   id: string;
-  product: Product;
   addedAt: string;
+  product: {
+    title: string;
+    brand: string;
+    image: string;
+    price: number;
+    originalPrice?: number;
+    rating: number;
+    reviewCount?: number;
+    affiliateUrl: string;
+  };
 }
+
 
 export interface RecentlyViewed {
   id: string;

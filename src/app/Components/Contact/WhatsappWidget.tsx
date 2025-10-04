@@ -1,4 +1,3 @@
-// components/contact/WhatsAppWidget.tsx
 'use client';
 
 import React, { useState } from 'react';

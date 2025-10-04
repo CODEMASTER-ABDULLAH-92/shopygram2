@@ -1,4 +1,3 @@
-// components/FilterSidebar.tsx
 import React from 'react';
 
 interface FilterSidebarProps {

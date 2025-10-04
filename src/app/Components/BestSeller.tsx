@@ -9,12 +9,12 @@ import { ProductItem } from "../types/product";
 const BestSeller = () => {
   const sectionRef = useRef(null);
   const [showNav, setShowNav] = useState(false);
-const [bestSeller, setBestSeller] = useState<ProductItem[]>([]);
+  const [bestSeller, setBestSeller] = useState<ProductItem[]>([]);
 
-useEffect(() => {
-  const filteredData = dataApi.filter((item) => item.bestSeller === true);
-  setBestSeller(filteredData);
-}, []);
+  useEffect(() => {
+    const filteredData = dataApi.filter((item) => item.bestSeller === true);
+    setBestSeller(filteredData);
+  }, []);
 
   // useEffect(() => {
   //   const observer = new IntersectionObserver(
@@ -33,40 +33,49 @@ useEffect(() => {
   // }, []);
 
   useEffect(() => {
-  const element = sectionRef.current; // copy ref to a variable
+    const element = sectionRef.current; // copy ref to a variable
 
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      setShowNav(entry.isIntersecting);
-    },
-    { threshold: 0 }
-  );
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowNav(entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
 
-  if (element) observer.observe(element);
+    if (element) observer.observe(element);
 
-  return () => {
-    if (element) observer.unobserve(element);
-  };
-}, []);
+    return () => {
+      if (element) observer.unobserve(element);
+    };
+  }, []);
 
   return (
     <>
       {/* Conditionally render LowerNav only when BestSeller is visible */}
       {showNav && (
         <div className="sticky top-30 mt-28 z-30">
-          <BestSellerNav/>
+          <BestSellerNav />
         </div>
       )}
 
       {/* The BestSeller section */}
       {/* Quick Links → Categories (grid/cards) */}
-      <div ref={sectionRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <div
+        ref={sectionRef}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+      >
         {bestSeller.map((item, index) => (
           <Card
             key={index}
             _id={item._id}
             heading={item.heading}
-            imag1={item.imag1}
+            imag1={
+              Array.isArray(item.imag1)
+                ? item.imag1
+                : item.imag1
+                ? [item.imag1]
+                : []
+            }
             price={item.price}
           />
         ))}

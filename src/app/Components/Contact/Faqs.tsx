@@ -1,4 +1,4 @@
-// components/contact/FAQSection.tsx
+
 'use client';
 
 import React, { useState } from 'react';

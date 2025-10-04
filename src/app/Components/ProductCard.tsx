@@ -1,4 +1,3 @@
-// components/ProductCard.tsx
 import React from 'react';
 import {  ViewMode } from '../lib/types';
 import { Product } from '../lib/types';

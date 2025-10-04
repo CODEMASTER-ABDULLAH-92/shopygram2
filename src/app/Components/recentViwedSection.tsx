@@ -1,4 +1,3 @@
-// components/recently-viewed/RecentlyViewedSection.tsx
 import React from 'react';
 import { RecentlyViewed as RecentlyViewedType } from '../types/engagment';
 import Image from 'next/image';
