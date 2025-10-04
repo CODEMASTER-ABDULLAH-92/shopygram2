@@ -488,6 +488,9 @@ export const mockDeals: Deal[] = [
 
 
 
+
+
+
 // data/mockUserData.ts
 import { User, UserPreferences} from '@/app/types/user';
 import {NotificationPreference } from "@/app/types/engagment"
