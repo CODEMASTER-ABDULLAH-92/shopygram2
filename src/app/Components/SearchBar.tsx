@@ -1,14 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 
-const SearchBar = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchResults, setSearchResults] = useState([]);
-  const searchRef = useRef(null);
-
-  // Mock product data - replace with actual API call
-  const products = [
+ const products = [
     {
       id: 1,
       name: "iPhone 15 Pro",
@@ -66,6 +59,14 @@ const SearchBar = () => {
       price: "$249"
     }
   ];
+const SearchBar = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+  const searchRef = useRef(null);
+
+  // Mock product data - replace with actual API call
+ 
 
   // Close search when clicking outside
   useEffect(() => {
@@ -97,7 +98,7 @@ const SearchBar = () => {
 
     setSearchResults(filteredResults);
     setIsSearchOpen(true);
-  }, [searchQuery,products]);
+  }, [searchQuery]);
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);

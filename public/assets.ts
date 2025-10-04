@@ -489,8 +489,8 @@ export const mockDeals: Deal[] = [
 
 
 // data/mockUserData.ts
-import { User, UserPreferences, WishlistItem, RecentlyViewed, Comparison, NotificationPreference } from '../types';
-
+import { User, UserPreferences} from '@/app/types/user';
+import {NotificationPreference } from "@/app/types/engagment"
 export const mockUser: User = {
   id: '1',
   name: 'Alex Johnson',
@@ -537,7 +537,7 @@ export const mockNotificationPreferences: NotificationPreference[] = [
 
 
 // data/aboutData.ts
-import { TeamMember, TrustFactor, Value } from '../types/about';
+import { TeamMember, TrustFactor, Value } from '@/app/types/about';
 
 export const missionData = {
   mission: "To simplify online shopping by connecting consumers with the best products through honest, transparent affiliate recommendations.",

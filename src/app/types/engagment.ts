@@ -1,21 +1,20 @@
-// types/engagement.ts
-import { Product } from './product';
+import { PremiumProduct } from '@/app/types/premiumProduct';
 
 export interface WishlistItem {
   id: string;
-  product: Product;
+  product: PremiumProduct;
   addedAt: string;
 }
 
 export interface RecentlyViewed {
   id: string;
-  product: Product;
+  product: PremiumProduct;
   viewedAt: string;
 }
 
 export interface Comparison {
   id: string;
-  products: Product[];
+  products: PremiumProduct[];
   createdAt: string;
   updatedAt: string;
 }
