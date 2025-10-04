@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
+import { ProductItem } from '../types/product';
 
  const products = [
     {
@@ -62,62 +63,74 @@ import React, { useState, useEffect, useRef } from 'react';
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<Product[]>([]);
+
   const searchRef = useRef(null);
 
   // Mock product data - replace with actual API call
  
 
   // Close search when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (searchRef.current && !searchRef.current.contains(event.target)) {
-        setIsSearchOpen(false);
-      }
-    };
+useEffect(() => {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+      setIsSearchOpen(false);
+    }
+  };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+  document.addEventListener('mousedown', handleClickOutside);
+  return () => {
+    document.removeEventListener('mousedown', handleClickOutside);
+  };
+}, []);
+
 
   // Handle search functionality
-  useEffect(() => {
-    if (searchQuery.trim() === '') {
-      setSearchResults([]);
-      setIsSearchOpen(false);
-      return;
-    }
+interface Product {
+  id: number;
+  name: string;
+  category: string;
+  description: string;
+  price: string;
+}
 
-    const filteredResults = products.filter(product =>
-      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchQuery.toLowerCase())
-    );
 
-    setSearchResults(filteredResults);
-    setIsSearchOpen(true);
-  }, [searchQuery]);
-
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      console.log('Searching for:', searchQuery);
-      // Handle search submission here
-    }
-  };
-
-  const handleResultClick = (product) => {
-    console.log('Product clicked:', product);
-    setSearchQuery('');
+useEffect(() => {
+  if (searchQuery.trim() === '') {
+    setSearchResults([]);
     setIsSearchOpen(false);
-    // Navigate to product page or handle click
-  };
+    return;
+  }
+
+  const filteredResults = products.filter(product =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    product.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    product.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  setSearchResults(filteredResults);
+  setIsSearchOpen(true);
+}, [searchQuery]);
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setSearchQuery(e.target.value);
+};
+
+const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  if (searchQuery.trim()) {
+    console.log('Searching for:', searchQuery);
+    // Handle search submission here
+  }
+};
+
+const handleResultClick = (product: ProductItem) => {
+  console.log('Product clicked:', product);
+  setSearchQuery('');
+  setIsSearchOpen(false);
+  // Navigate to product page or handle click
+};
+
 
   return (
     <div ref={searchRef} className="relative scale-100 duration-500 transition-all h-20 w-full max-w-xl mx-4">
@@ -173,34 +186,35 @@ const SearchBar = () => {
                 <span className="text-xs text-gray-500">Products</span>
               </div>
               
-              <div className="space-y-2">
-                {searchResults.map((product) => (
-                  <div
-                    key={product.id}
-                    onClick={() => handleResultClick(product)}
-                    className="p-3 rounded-lg hover:bg-gray-50/80 cursor-pointer transition-all duration-200 border border-transparent hover:border-gray-200"
-                  >
-                    <div className="flex justify-between items-start">
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-gray-800 text-sm mb-1">
-                          {product.name}
-                        </h4>
-                        <p className="text-xs text-gray-600 mb-1 line-clamp-2">
-                          {product.description}
-                        </p>
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
-                            {product.category}
-                          </span>
-                          <span className="text-sm font-bold text-green-600">
-                            {product.price}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+<div className="space-y-2">
+  {searchResults.map((product: Product) => (
+    <div
+      key={product.id}
+      onClick={() => handleResultClick(product)}
+      className="p-3 rounded-lg hover:bg-gray-50/80 cursor-pointer transition-all duration-200 border border-transparent hover:border-gray-200"
+    >
+      <div className="flex justify-between items-start">
+        <div className="flex-1">
+          <h4 className="font-semibold text-gray-800 text-sm mb-1">
+            {product.name}
+          </h4>
+          <p className="text-xs text-gray-600 mb-1 line-clamp-2">
+            {product.description}
+          </p>
+          <div className="flex items-center gap-2">
+            <span className="text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded-full">
+              {product.category}
+            </span>
+            <span className="text-sm font-bold text-green-600">
+              {product.price}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
             </div>
           </div>
         )}

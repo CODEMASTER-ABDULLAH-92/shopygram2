@@ -4,15 +4,18 @@ import React, { useEffect, useRef, useState } from "react";
 import Card from "../Components/Card";
 import BestSellerNav from "../Components/BestSellerNav";
 import { dataApi } from "../../../public/assets";
+import { ProductItem } from "../types/product";
 
 const BestSeller = () => {
   const sectionRef = useRef(null);
   const [showNav, setShowNav] = useState(false);
-  const [bestSeller,setBestSeller] = useState([]);
-  useEffect(()=>{
-    const filteredData = dataApi.filter((item)=> item.bestSeller === true);
-    setBestSeller(filteredData);
-  },[]);
+const [bestSeller, setBestSeller] = useState<ProductItem[]>([]);
+
+useEffect(() => {
+  const filteredData = dataApi.filter((item) => item.bestSeller === true);
+  setBestSeller(filteredData);
+}, []);
+
   // useEffect(() => {
   //   const observer = new IntersectionObserver(
   //     ([entry]) => {
