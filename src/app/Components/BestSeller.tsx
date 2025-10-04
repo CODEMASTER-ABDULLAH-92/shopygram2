@@ -13,21 +13,38 @@ const BestSeller = () => {
     const filteredData = dataApi.filter((item)=> item.bestSeller === true);
     setBestSeller(filteredData);
   },[]);
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       // entry.isIntersecting === true means BestSeller is visible
+  //       setShowNav(entry.isIntersecting);
+  //     },
+  //     { threshold: 0 } // fires when any part of BestSeller is visible
+  //   );
+
+  //   if (sectionRef.current) observer.observe(sectionRef.current);
+
+  //   return () => {
+  //     if (sectionRef.current) observer.unobserve(sectionRef.current);
+  //   };
+  // }, []);
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // entry.isIntersecting === true means BestSeller is visible
-        setShowNav(entry.isIntersecting);
-      },
-      { threshold: 0 } // fires when any part of BestSeller is visible
-    );
+  const element = sectionRef.current; // copy ref to a variable
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      setShowNav(entry.isIntersecting);
+    },
+    { threshold: 0 }
+  );
 
-    return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
-    };
-  }, []);
+  if (element) observer.observe(element);
+
+  return () => {
+    if (element) observer.unobserve(element);
+  };
+}, []);
 
   return (
     <>

@@ -97,7 +97,7 @@ const SearchBar = () => {
 
     setSearchResults(filteredResults);
     setIsSearchOpen(true);
-  }, [searchQuery]);
+  }, [searchQuery,products]);
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);

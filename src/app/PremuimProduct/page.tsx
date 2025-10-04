@@ -191,19 +191,17 @@ const PremiumProductsPage: React.FC = () => {
               ))}
             </div>
 
-            {/* Sort Dropdown */}
-            <div className="flex-shrink-0">
-              <select 
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as any)}
-                className="bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-              >
-                <option value="featured">Featured</option>
-                <option value="price-high">Price: High to Low</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="rating">Top Rated</option>
-              </select>
-            </div>
+          <select
+  value={sortBy}
+  onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSortBy(e.target.value)}
+  className="bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+>
+  <option value="featured">Featured</option>
+  <option value="price-high">Price: High to Low</option>
+  <option value="price-low">Price: Low to High</option>
+  <option value="rating">Top Rated</option>
+</select>
+
           </div>
 
           {/* Stats Bar */}
