@@ -1,20 +1,19 @@
-import { PremiumProduct } from '@/app/types/premiumProduct';
-
+import { Product } from "../lib/types";
 export interface WishlistItem {
   id: string;
-  product: PremiumProduct;
+  product: Product;
   addedAt: string;
 }
 
 export interface RecentlyViewed {
   id: string;
-  product: PremiumProduct;
+  product: Product;
   viewedAt: string;
 }
 
 export interface Comparison {
   id: string;
-  products: PremiumProduct[];
+  products: Product[];
   createdAt: string;
   updatedAt: string;
 }
