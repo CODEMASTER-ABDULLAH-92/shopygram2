@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 // types.ts
 export interface Product {
   id: string;
@@ -7,7 +9,7 @@ export interface Product {
   rating: number;
   reviewCount: number;
   brand: string;
-  image: string;
+  image: string | StaticImageData;
   category: string;
   affiliateUrl: string;
   isFeatured?: boolean;

@@ -1,13 +1,13 @@
 "use client";
 import React from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import p1 from "../../../public/p1.jpeg";
 import p2 from "../../../public/p2.jpeg";
 
 interface Category {
   id: number;
   name: string;
-  productImage: string;
+  productImage: string | StaticImageData;
   productCount: number;
   bgColor: string;
 }
