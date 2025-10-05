@@ -96,7 +96,7 @@ const showSearch = useSelector((state: RootState) => state.variable.showSearchBa
   return (
     <div className="relative">
       {/* ✅ Sticky Navbars */}
-      <div className="fixed w-full z-50 space-y-4 sm:space-y-7">
+      <div className="fixed w-full z-50 space-y-7 sm:space-y-7">
         <UpperNav />
         <LowerNav />
       </div>

@@ -27,7 +27,7 @@ const NewsletterSignupCompact = () => {
           Get 10% off your first order and stay updated with our latest collections
         </p>
         
-        <form onSubmit={handleSubmit} className="flex gap-3 max-w-md mx-auto">
+        <form onSubmit={handleSubmit} className="flex sm:flex-row flex-col gap-3 max-w-md mx-auto">
           <input
             type="email"
             value={email}
