@@ -23,38 +23,64 @@ interface ProductItem {
 const NewProduct = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [showNav, setShowNav] = useState(false);
-  const [bestSeller, setBestSeller] = useState<ProductItem[]>([]);
+  const [newProducts, setNewProducts] = useState<ProductItem[]>([]);
 
+  // ✅ Filter only "newItem" products
   useEffect(() => {
-    const filteredData = dataApi.filter((item) => item.bestSeller === true);
-    setBestSeller(filteredData);
+    const filteredData = dataApi.filter((item) => item.newItem === true);
+    setNewProducts(filteredData);
   }, []);
 
+  // ✅ Observe visibility of NewProduct section
   useEffect(() => {
     const element = sectionRef.current;
-    const observer = new IntersectionObserver(([entry]) => {
-      setShowNav(entry.isIntersecting);
-    });
+    if (!element) return;
 
-    if (element) observer.observe(element);
-    return () => {
-      if (element) observer.unobserve(element);
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowNav(entry.isIntersecting);
+      },
+      { threshold: 0.2 } // smoother trigger
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
   }, []);
 
   return (
     <>
-      {showNav && (
-        <div className="sticky top-30 mt-28 z-30">
-          <NewProductNav />
-        </div>
-      )}
-
-      <div ref={sectionRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        {bestSeller.map((item, index) => (
-          <Card key={index} _id={item._id} heading={item.heading} imag1={item.imag1} price={item.price} />
-        ))}
+      {/* ✅ Animated sticky navigation */}
+      <div
+        className={`fixed top-32 left-0 w-full z-30 transition-all duration-500 ease-in-out ${
+          showNav
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-10 pointer-events-none"
+        }`}
+      >
+        <NewProductNav />
       </div>
+
+      {/* ✅ Product Grid Section */}
+      <section
+        ref={sectionRef}
+        className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        {newProducts.map((item, index) => (
+          <Card
+            key={index}
+            _id={item._id}
+            heading={item.heading}
+            imag1={
+              Array.isArray(item.imag1)
+                ? item.imag1
+                : item.imag1
+                ? [item.imag1]
+                : []
+            }
+            price={item.price}
+          />
+        ))}
+      </section>
     </>
   );
 };

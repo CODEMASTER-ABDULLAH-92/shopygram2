@@ -24,6 +24,7 @@ import Categories from "./Components/QuickLinks";
 import TrendingProductsCarousel from "./Components/Carousel";
 import NewsletterSignupCompact from "./Components/NewsLetter";
 import type { RootState } from "@/app/lib/store"; // adjust path
+import TrustedByMarquee from "./Components/Logo";
 
 export default function Home() {
   const imgRef = useRef(null);
@@ -159,7 +160,7 @@ const showSearch = useSelector((state: RootState) => state.variable.showSearchBa
           </div>
 
           {/* Right Side Content */}
-          <div className="flex-1 sm:flex-none text-center sm:text-left">
+          <div className="flex-1 sm:flex-row flex-col sm:flex-none text-center sm:text-left">
             <h1 className="text-white pb-3 sm:pb-4 font-light text-base sm:text-lg">
               Upgrade your wardrobe with <br className="hidden sm:block" /> 
               crisp, versatile T-shirts
@@ -173,9 +174,9 @@ const showSearch = useSelector((state: RootState) => state.variable.showSearchBa
 
       {/* Component Sections */}
       <div className="">
-        <OurStory />
         <Categories />
         <BestSeller />
+        <OurStory />
         <NewProduct />
         <DiscoverCollection />
         <RefineCasual />
@@ -184,6 +185,7 @@ const showSearch = useSelector((state: RootState) => state.variable.showSearchBa
         <Services />
         <Pictures />
         <TrendingProductsCarousel />
+        <TrustedByMarquee/>
         <NewsletterSignupCompact />
       </div>
       

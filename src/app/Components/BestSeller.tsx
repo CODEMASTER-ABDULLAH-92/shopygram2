@@ -7,62 +7,54 @@ import { dataApi } from "../../../public/assets";
 import { ProductItem } from "../types/product";
 
 const BestSeller = () => {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
   const [showNav, setShowNav] = useState(false);
   const [bestSeller, setBestSeller] = useState<ProductItem[]>([]);
 
+  // ✅ Filter data once
   useEffect(() => {
     const filteredData = dataApi.filter((item) => item.bestSeller === true);
     setBestSeller(filteredData);
   }, []);
 
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       // entry.isIntersecting === true means BestSeller is visible
-  //       setShowNav(entry.isIntersecting);
-  //     },
-  //     { threshold: 0 } // fires when any part of BestSeller is visible
-  //   );
-
-  //   if (sectionRef.current) observer.observe(sectionRef.current);
-
-  //   return () => {
-  //     if (sectionRef.current) observer.unobserve(sectionRef.current);
-  //   };
-  // }, []);
-
+  // ✅ Observe visibility of the BestSeller section
   useEffect(() => {
-    const element = sectionRef.current; // copy ref to a variable
+    const element = sectionRef.current;
+    if (!element) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         setShowNav(entry.isIntersecting);
       },
-      { threshold: 0 }
+      {
+        threshold: 0.2, // smoother trigger: only when 20% visible
+      }
     );
 
-    if (element) observer.observe(element);
+    observer.observe(element);
 
     return () => {
-      if (element) observer.unobserve(element);
+      observer.disconnect();
     };
   }, []);
 
   return (
     <>
-      {/* Conditionally render LowerNav only when BestSeller is visible */}
-      {showNav && (
-        <div className="sticky top-30 mt-28 z-30">
-          <BestSellerNav />
-        </div>
-      )}
-
-      {/* The BestSeller section */}
-      {/* Quick Links → Categories (grid/cards) */}
+      {/* ✅ Smooth sticky nav with animation */}
       <div
+        className={`fixed top-32 left-0 w-full z-30 transition-all duration-500 ease-in-out ${
+          showNav
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-10 pointer-events-none"
+        }`}
+      >
+        <BestSellerNav />
+      </div>
+
+      {/* ✅ BestSeller Section */}
+      <section
         ref={sectionRef}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
       >
         {bestSeller.map((item, index) => (
           <Card
@@ -79,7 +71,7 @@ const BestSeller = () => {
             price={item.price}
           />
         ))}
-      </div>
+      </section>
     </>
   );
 };

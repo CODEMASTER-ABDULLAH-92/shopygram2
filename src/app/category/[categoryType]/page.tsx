@@ -9,19 +9,6 @@ import { useParams } from 'next/navigation';
 
 // Mock data - replace with actual data
 const mockProducts: Product[] = [
-  // Electronics
-
-
-  // "Electronics",
-  //   "Clothes",
-  //   "Jewelry",
-  //   "Watches",
-  //   "Home & Kitchen",
-  //   "Beauty & Personal Care",
-  //   "Sports & Outdoors",
-  //   "Books & Stationery",
-  //   "Toys & Games",
-  //   "Automotive"
   {
     id: '1',
     title: 'Wireless Bluetooth Headphones with Noise Cancellation',
