@@ -148,10 +148,11 @@ typescript
 Deploy with one click
 
 Environment Variables for Production
-env
+```
 MONGODB_URI=your-production-mongodb-uri
 NEXTAUTH_SECRET=your-production-secret
 NEXTAUTH_URL=https://your-domain.vercel.app
+```
 
 ## 👥 Team
 Abdullah Peerzada - Lead Developer & Project Maintainer
