@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "next/navigation";
+// import { useParams } from "next/navigation";
 interface Product {
   _id: string;
   imag1: string[];
@@ -28,7 +28,7 @@ export default function ProductManagement() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [loading, setLoading] = useState(false);
 
-  const { id } = useParams();
+  // const { id } = useParams();
 
   const [formData, setFormData] = useState({
     imag1: [""],

@@ -68,11 +68,11 @@
 
 'use client';
 
-import { useState } from 'react';
+// import { useState } from 'react';
 import ProductManagement from '@/app/Components/admin/ProductManagment';
 
 export default function AdminDashboard() {
-  const [activeTab, setActiveTab] = useState<'products'>('products');
+  // const [activeTab, setActiveTab] = useState<'products'>('products');
 
   return (
     <div className="min-h-screen bg-gray-50">
