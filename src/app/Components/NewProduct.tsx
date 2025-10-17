@@ -2,36 +2,55 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Card from "../Components/Card";
-import { dataApi } from "../../../public/assets";
-import NewProductNav from "./NewProductNav";
-import { StaticImageData } from "next/image";
+import BestSellerNav from "../Components/BestSellerNav";
+import axios from "axios";
 
-interface ProductItem {
+interface BestSellerProduct {
   _id: string;
-  imag1: StaticImageData[];
+  imag1: string[];
   heading: string;
-  price: string;
-  category: string;
-  colors: string[];
-  sizes: string[];
-  discription: string;
-  materialCare: string;
+  price: number;
   bestSeller: boolean;
   newItem: boolean;
+  // Add other fields you need
 }
 
-const NewProduct = () => {
+const BestSeller = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [showNav, setShowNav] = useState(false);
-  const [newProducts, setNewProducts] = useState<ProductItem[]>([]);
+  const [bestSeller, setBestSeller] = useState<BestSellerProduct[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // ✅ Filter only "newItem" products
+  // ✅ Fetch products and filter for new items
   useEffect(() => {
-    const filteredData = dataApi.filter((item) => item.newItem === true);
-    setNewProducts(filteredData);
+    const fetchBestSellers = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get("/api/store/getAllProduct");
+        
+        if (response.data.success) {
+          // Filter products where newItem is true and take first 8
+          const newProducts = response.data.products
+            .filter((product: BestSellerProduct) => product.newItem === true)
+            .slice(0, 8); // Get first 8 new items
+            
+          setBestSeller(newProducts);
+        } else {
+          setError("Failed to fetch products");
+        }
+      } catch (err) {
+        console.error("Error fetching products:", err);
+        setError("Error loading products");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBestSellers();
   }, []);
 
-  // ✅ Observe visibility of NewProduct section
+  // ✅ Observe visibility of the BestSeller section
   useEffect(() => {
     const element = sectionRef.current;
     if (!element) return;
@@ -40,16 +59,39 @@ const NewProduct = () => {
       ([entry]) => {
         setShowNav(entry.isIntersecting);
       },
-      { threshold: 0.2 } // smoother trigger
+      {
+        threshold: 0.2,
+      }
     );
 
     observer.observe(element);
-    return () => observer.disconnect();
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
+
+  // Loading state
+  if (loading) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="text-center">Loading new products...</div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="text-center text-red-500">{error}</div>
+      </div>
+    );
+  }
 
   return (
     <>
-      {/* ✅ Animated sticky navigation */}
+      {/* ✅ Smooth sticky nav with animation */}
       <div
         className={`fixed top-32 left-0 w-full z-30 transition-all duration-500 ease-in-out ${
           showNav
@@ -57,32 +99,45 @@ const NewProduct = () => {
             : "opacity-0 -translate-y-10 pointer-events-none"
         }`}
       >
-        <NewProductNav />
+        <BestSellerNav />
       </div>
 
-      {/* ✅ Product Grid Section */}
+      {/* ✅ New Products Section */}
       <section
         ref={sectionRef}
-        className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="max-w-7xl mx-auto px-4 py-12"
       >
-        {newProducts.map((item, index) => (
-          <Card
-            key={index}
-            _id={item._id}
-            heading={item.heading}
-            imag1={
-              Array.isArray(item.imag1)
-                ? item.imag1
-                : item.imag1
-                ? [item.imag1]
-                : []
-            }
-            price={item.price}
-          />
-        ))}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-gray-900">New Arrivals</h2>
+          <p className="text-gray-600 mt-2">Discover our latest products</p>
+        </div>
+
+        {bestSeller.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-gray-500 text-lg">No new products found.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {bestSeller.map((item) => (
+              <Card
+                key={item._id}
+                _id={item._id}
+                heading={item.heading}
+                imag1={
+                  Array.isArray(item.imag1)
+                    ? item.imag1
+                    : item.imag1
+                    ? [item.imag1]
+                    : []
+                }
+                price={item.price}
+              />
+            ))}
+          </div>
+        )}
       </section>
     </>
   );
 };
 
-export default NewProduct;
+export default BestSeller;

@@ -97,8 +97,7 @@ const Categories = () => {
       productImage: p2,
       productCount: 189,
       bgColor: "bg-gradient-to-br from-yellow-50 to-amber-100"
-    }, 
-    ,
+    },
     {
       id: 13,
       name: "Groceries",
@@ -113,7 +112,6 @@ const Categories = () => {
       productCount: 189,
       bgColor: "bg-gradient-to-br from-yellow-50 to-amber-100"
     },
-    ,
     {
       id: 15,
       name: "Groceries",
@@ -127,7 +125,7 @@ const Categories = () => {
       productImage: p2,
       productCount: 189,
       bgColor: "bg-gradient-to-br from-yellow-50 to-amber-100"
-    },
+    }
   ];
 
   return (
@@ -139,8 +137,7 @@ const Categories = () => {
       </div>
 
       {/* Categories Grid */}
-
-      <div className=" hidden sm:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {categories.map((category) => (
           <div
             key={category.id}
@@ -187,38 +184,30 @@ const Categories = () => {
         ))}
       </div>
 
-
-<div className=" sm:hidden w-full pb-4 overflow-scroll">
-  <div className="grid grid-rows-3 grid-flow-col gap-4 px-4">
-    {categories.map((category) => (
-      <div
-        key={category.id}
-        className="group cursor-pointer"
-      >
-        {/* Image Container */}
-        <div className="relative w-20 h-20 rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-          <Image
-            src={category.productImage}
-            alt={category.name}
-            fill
-            className="object-cover"
-            sizes="80px"
-          />
-          {/* Image Overlay */}
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-full" />
+      {/* Mobile View */}
+      <div className="sm:hidden w-full pb-4 overflow-scroll">
+        <div className="grid grid-rows-3 grid-flow-col gap-4 px-4">
+          {categories.map((category) => (
+            <div
+              key={category.id}
+              className="group cursor-pointer"
+            >
+              {/* Image Container */}
+              <div className="relative w-20 h-20 rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                <Image
+                  src={category.productImage}
+                  alt={category.name}
+                  fill
+                  className="object-cover"
+                  sizes="80px"
+                />
+                {/* Image Overlay */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-full" />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</div>
-
-
-      {/* View All Button */}
-      {/* <div className="flex justify-center mt-12">
-        <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
-          View All Categories
-        </button>
-      </div> */}
     </div>
   );
 };

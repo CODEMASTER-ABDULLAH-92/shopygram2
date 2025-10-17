@@ -1,14 +1,19 @@
 import dbConnect from "@/app/lib/db.connect";
 import Product from "@/app/models/product.model";
+
 import { NextResponse } from "next/server";
 
-export async function POST(request: Request) {
+export async function PUT(
+  request: Request,
+  context: { params: Promise<{ id: string }> }
+) {
   await dbConnect();
 
-  try {
-    // Parse JSON body from request
-    const body = await request.json();
+  const { id } = await context.params;
 
+  try {
+    // Parse request body as ProductRequestBody
+    const body = await request.json();
 
     const {
       imag1,
@@ -32,29 +37,42 @@ export async function POST(request: Request) {
     }
 
     // Create new product document
-    const newProduct = await Product.create({
-      imag1,
-      heading,
-      price,
-      category,
-      colors,
-      sizes,
-      description,
-      materialCare,
-      bestSeller,
-      newItem,
-    });
-
-    // Return success response
-    return NextResponse.json(
-      { success: true, message: "Product created successfully!", product: newProduct },
-      { status: 201 }
+    const newProduct = await Product.findByIdAndUpdate(
+      id,
+      {
+        imag1,
+        heading,
+        price,
+        category,
+        colors,
+        sizes,
+        description,
+        materialCare,
+        bestSeller,
+        newItem,
+      },
+      { new: true }
     );
 
-  } catch (error) {
+    // Return successful response
+    return NextResponse.json(
+      {
+        success: true,
+        message: "Product updated successfully!",
+        product: newProduct,
+      },
+      { status: 201 }
+    );
+  } catch (error: unknown) {
     console.error("Error creating product:", error);
     return NextResponse.json(
-      { success: false, message: "Server error while creating product." },
+      {
+        success: false,
+        message:
+          error instanceof Error
+            ? error.message
+            : "Server error while creating product.",
+      },
       { status: 500 }
     );
   }

@@ -7,7 +7,7 @@ import { Menu, X, Search, ChevronDown } from "lucide-react";
 
 const LowerNav = () => {
   const [categoriesOpen, setCategoriesOpen] = useState(false);
-  const [dealsOpen, setDealsOpen] = useState(false);
+  // const [dealsOpen, setDealsOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
 
@@ -22,22 +22,25 @@ const LowerNav = () => {
     "Clothes",
     "Jewelry",
     "Watches",
-    "Home & Kitchen",
-    "Beauty & Personal Care",
-    "Sports & Outdoors",
-    "Books & Stationery",
-    "Toys & Games",
+    "Home",
+    "Kitchen",
+    "Beauty",
+    "Sports",
+    "Outdoors",
+    "Books",
+    "Toys",
+    "Games",
     "Automotive"
   ];
 
-  const deals = [
-    "Today's Deals",
-    "Flash Sales",
-    "Discounts",
-    "Clearance Sale",
-    "Bundle Offers",
-    "Seasonal Deals"
-  ];
+  // const deals = [
+  //   "Today's Deals",
+  //   "Flash Sales",
+  //   "Discounts",
+  //   "Clearance Sale",
+  //   "Bundle Offers",
+  //   "Seasonal Deals"
+  // ];
 
   const toggleMobileDropdown = (dropdown: string) => {
     setMobileDropdown(mobileDropdown === dropdown ? null : dropdown);
@@ -81,38 +84,15 @@ const LowerNav = () => {
               </li>
 
               {/* Deals Dropdown */}
-              <li 
-                className="relative cursor-pointer hover:text-black transition-colors"
-                onMouseEnter={() => setDealsOpen(true)}
-                onMouseLeave={() => setDealsOpen(false)}
-              >
-                <Link href={"/deals"} className="flex items-center gap-1">
-                  Deals
-                  {/* <ChevronDown size={16} /> */}
-                </Link>
-                {dealsOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-50">
-                    {deals.map((deal, index) => (
-                      <div
-                        key={index}
-                        className="px-4 py-2 hover:bg-gray-100 transition-colors cursor-pointer text-sm"
-                      >
-                        <Link href={`/deals/${deal.toLowerCase().replace(/\s+/g, '-')}`} className="block w-full">
-                          {deal}
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </li>
+           
 
-              <Link href={"/PremuimProduct"} className="cursor-pointer hover:text-black transition-colors whitespace-nowrap">
+              {/* <Link href={"/PremuimProduct"} className="cursor-pointer hover:text-black transition-colors whitespace-nowrap">
                 Premium Products
               </Link>
               
               <Link href={"/blog"} className="cursor-pointer hover:text-black transition-colors">
                 Blog
-              </Link>
+              </Link> */}
               
               <li onClick={changeVisibility} className="cursor-pointer hover:text-black transition-colors flex items-center gap-1">
                 {/* <Search size={16} /> */}
@@ -177,7 +157,7 @@ const LowerNav = () => {
                 </li>
 
                 {/* Mobile Deals Dropdown */}
-                <li className="border-b border-gray-200/50 pb-2">
+                {/* <li className="border-b border-gray-200/50 pb-2">
                   <button
                     onClick={() => toggleMobileDropdown('deals')}
                     className="flex items-center justify-between w-full py-2 hover:text-black transition-colors text-left"
@@ -204,9 +184,9 @@ const LowerNav = () => {
                       ))}
                     </div>
                   )}
-                </li>
+                </li> */}
 
-                <li className="border-b border-gray-200/50 pb-2">
+                {/* <li className="border-b border-gray-200/50 pb-2">
                   <Link
                     href={"/PremuimProduct"}
                     className="block py-2 hover:text-black transition-colors font-medium"
@@ -224,7 +204,7 @@ const LowerNav = () => {
                   >
                     Blog
                   </Link>
-                </li>
+                </li> */}
 
                 <li className="border-b border-gray-200/50 pb-2">
                   <button

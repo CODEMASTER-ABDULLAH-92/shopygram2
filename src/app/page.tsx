@@ -15,14 +15,14 @@ import NewProduct from "./Components/NewProduct";
 import DiscoverCollection from "./Components/DiscoverCollection";
 import RefineCasual from "./Components/Refine";
 import Testimonilas from "./Components/Testimonilas";
-import Blogs from "./Components/Blogs";
+// import Blogs from "./Components/Blogs";
 import Services from "./Components/Services";
 import Pictures from "./Components/Pictures";
 import SearchBar from "./Components/SearchBar";
 
 import Categories from "./Components/QuickLinks";
 import TrendingProductsCarousel from "./Components/Carousel";
-import NewsletterSignupCompact from "./Components/NewsLetter";
+// import NewsletterSignupCompact from "./Components/NewsLetter";
 import type { RootState } from "@/app/lib/store"; // adjust path
 import TrustedByMarquee from "./Components/Logo";
 
@@ -129,7 +129,7 @@ const showSearch = useSelector((state: RootState) => state.variable.showSearchBa
         )}
 
         {/* Foreground Content */}
-        <div className="absolute bottom-4 sm:bottom-10 left-4 sm:left-10 right-4 sm:right-10 gap-6 sm:gap-20 flex flex-col sm:flex-row items-start sm:items-end z-10">
+        <div className="absolute bottom-4 sm:bottom-10 left-4 sm:left-10 right-4 sm:right-10 gap-6 sm:gap-20 flex flex-col sm:flex-row items-start sm:items-end ">
           {/* Left Content */}
           <div className="flex-1">
             <h1 className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-tight sm:leading-tight">
@@ -181,12 +181,12 @@ const showSearch = useSelector((state: RootState) => state.variable.showSearchBa
         <DiscoverCollection />
         <RefineCasual />
         <Testimonilas />
-        <Blogs />
+        {/* <Blogs /> */}
         <Services />
         <Pictures />
         <TrendingProductsCarousel />
         <TrustedByMarquee/>
-        <NewsletterSignupCompact />
+        {/* <NewsletterSignupCompact /> */}
       </div>
       
       <Footer />
