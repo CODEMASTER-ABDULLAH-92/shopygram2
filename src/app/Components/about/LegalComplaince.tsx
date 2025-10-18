@@ -7,7 +7,7 @@ export const LegalCompliance: React.FC = () => {
       <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
         Legal & Compliance
       </h2>
-      
+
       <div className="space-y-6 sm:space-y-8">
         {/* Affiliate Disclaimer */}
         <div className="bg-yellow-50 border border-yellow-200 rounded-lg sm:rounded-xl p-4 sm:p-6">

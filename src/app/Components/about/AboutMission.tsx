@@ -49,7 +49,6 @@ export const MissionStory: React.FC = () => {
             </p>
           </div>
         </div>
-
         {/* Brand Story */}
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">
