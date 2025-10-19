@@ -21,6 +21,7 @@ export async function POST(request: Request) {
       materialCare,
       bestSeller,
       newItem,
+      affiliateLink,
     } = body;
 
     // Validate required fields
@@ -43,6 +44,7 @@ export async function POST(request: Request) {
       materialCare,
       bestSeller,
       newItem,
+      affiliateLink
     });
 
     // Return success response

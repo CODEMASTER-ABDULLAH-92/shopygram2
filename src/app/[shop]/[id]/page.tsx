@@ -8,6 +8,7 @@ import { Check, Minus, Plus } from "lucide-react";
 import Footer from "@/app/Components/Footer";
 import { WhatsAppWidget } from "@/app/Components/Contact/WhatsappWidget";
 import axios from "axios";
+import Link from "next/link";
 
 // ✅ Define Product Type matching your backend
 interface Product {
@@ -22,6 +23,7 @@ interface Product {
   materialCare: string;
   bestSeller?: boolean;
   newItem?: boolean;
+  affiliateLink:string;
 }
 
 const Page = () => {
@@ -285,12 +287,20 @@ const Page = () => {
               </button>
             </div>
 
-            <button
-              onClick={handleAddToCart}
-              className="bg-gray-700 text-white py-2 px-6 rounded-md hover:bg-gray-800 transition-colors flex-1 sm:flex-none"
-            >
-              Add to Cart
-            </button>
+            <a
+  href={
+    data.affiliateLink?.startsWith("http")
+      ? data.affiliateLink
+      : `https://${data.affiliateLink}`
+  }
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={handleAddToCart}
+  className="bg-gray-700 text-white py-2 px-6 rounded-md hover:bg-gray-800 transition-colors flex-1 sm:flex-none"
+>
+  Add to Cart
+</a>
+
           </div>
         </div>
 

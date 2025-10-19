@@ -12,6 +12,7 @@ export interface IProduct extends Document {
   materialCare: string;
   bestSeller: boolean;
   newItem: boolean;
+  affiliateLink:string
 }
 
 // Define the schema
@@ -58,7 +59,12 @@ const productSchema = new Schema<IProduct>(
       type: Boolean,
       default: false,
     },
+    affiliateLink:{
+      type:String,
+      required:true
+    }
   },
+
   { timestamps: true }
 );
 

@@ -11,6 +11,7 @@ const UpperNav = () => {
     "FREE SHIPPING ON ALL ORDERS",
     "FREE RETURNS WITHIN 30 DAYS",
     "24/7 CUSTOMER SUPPORT",
+    "Trusted By 50M Plus Peoples",
   ];
 
   useGSAP(() => {
@@ -20,7 +21,7 @@ const UpperNav = () => {
 
     gsap.to(sliderRef.current, {
       x: -totalWidth,
-      duration: 9,
+      duration: 50,
       ease: "none",
       repeat: -1,
       modifiers: {
@@ -34,7 +35,7 @@ const UpperNav = () => {
       <div className="w-[70vw] gap-10 py-2 px-4 rounded-md bg-[#ebebeb94] backdrop-blur-md border border-white/30 shadow-lg overflow-hidden">
         <div ref={containerRef} className="flex">
           <div ref={sliderRef} className="flex flex-1 gap-4">
-            {[...data, ...data, ...data].map((item, index) => (
+            {[...data, ...data, ...data,...data,...data,...data,...data].map((item, index) => (
               <li
                 key={index}
                 className="list-none text-[#33383c] text-xs whitespace-nowrap"

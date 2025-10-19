@@ -16,6 +16,7 @@ interface Product {
   materialCare: string;
   bestSeller: boolean;
   newItem: boolean;
+  affiliateLink: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -41,6 +42,7 @@ export default function ProductManagement() {
     materialCare: "",
     bestSeller: false,
     newItem: false,
+    affiliateLink: "",
   });
 
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
@@ -141,6 +143,7 @@ export default function ProductManagement() {
       materialCare: "",
       bestSeller: false,
       newItem: false,
+      affiliateLink: "",
     });
     setFormErrors({});
     setShowModal(true);
@@ -159,6 +162,7 @@ export default function ProductManagement() {
       materialCare: product.materialCare,
       bestSeller: product.bestSeller,
       newItem: product.newItem,
+      affiliateLink: product.affiliateLink,
     });
     setFormErrors({});
     setShowModal(true);
@@ -483,6 +487,31 @@ export default function ProductManagement() {
                   {formErrors.heading && (
                     <p className="mt-1 text-sm text-red-600">
                       {formErrors.heading}
+                    </p>
+                  )}
+                </div>
+
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Affiliate Link *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.affiliateLink || ""}
+                    onChange={(e) =>
+                      handleInputChange("affiliateLink", e.target.value)
+                    }
+                    className={`mt-1 block w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
+                      formErrors.affiliateLink
+                        ? "border-red-300"
+                        : "border-gray-300"
+                    }`}
+                    placeholder="Enter product Affiliate Link"
+                  />
+                  {formErrors.affiliateLink && (
+                    <p className="mt-1 text-sm text-red-600">
+                      {formErrors.affiliateLink}
                     </p>
                   )}
                 </div>

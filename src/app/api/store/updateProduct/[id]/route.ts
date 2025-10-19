@@ -26,6 +26,7 @@ export async function PUT(
       materialCare,
       bestSeller,
       newItem,
+      affiliateLink,
     } = body;
 
     // Validate required fields
@@ -50,6 +51,7 @@ export async function PUT(
         materialCare,
         bestSeller,
         newItem,
+        affiliateLink
       },
       { new: true }
     );
