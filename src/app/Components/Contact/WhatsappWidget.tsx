@@ -6,8 +6,8 @@ export const WhatsAppWidget: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = '+923233381938';
-    const message = 'Hello! I need help with ShopyGram.';
+    const phoneNumber = '+923289682170';
+    const message = `Hello! I need help with ShopyGram.`;
     const url = `https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };

@@ -193,7 +193,7 @@ const Categories = () => {
               className="group cursor-pointer"
             >
               {/* Image Container */}
-              <div className="relative w-20 h-20 rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+              <div className="relative w-16 h-16 rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
                 <Image
                   src={category.productImage}
                   alt={category.name}

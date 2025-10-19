@@ -5,7 +5,7 @@ import Link from "next/link";
 
 interface cardInfo {
   _id: string;
-  imag1: string[]; // Now it's an array
+  imag1: string[];
   heading: string;
   price: number;
 }
@@ -14,58 +14,69 @@ const Card = (info: cardInfo) => {
   const [hovered, setHovered] = useState(false);
   const [imageError, setImageError] = useState(false);
 
-  // Handle image errors
-  const handleImageError = () => {
-    setImageError(true);
-  };
+  const handleImageError = () => setImageError(true);
 
   return (
     <Link
-      href={`shop/${info._id}`}
-      className="cursor-pointer flex justify-center items-center"
+      href={`/shop/${info._id}`}
+      className="cursor-pointer w-full sm:w-[48%] md:w-[31%] lg:w-[90%] flex justify-center"
     >
-      <div className="flex flex-col items-start m-2 overflow-hidden w-full">
-        {/* Image Container - FIXED: Added relative positioning and fixed dimensions */}
-        <div
-          className="relative mb-2 w-full h-80 bg-gray-100 rounded-md overflow-hidden"
-          onMouseLeave={() => setHovered(false)}
-          onMouseEnter={() => setHovered(true)}
-        >
-          {/* Front Image */}
+      <div
+        className="flex flex-col w-full bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-gray-100 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02]"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        {/* Image Section */}
+        <div className="relative aspect-square w-full overflow-hidden bg-gray-50">
           {!imageError && info.imag1[0] ? (
-            <Image
-              alt="product-front"
-              src={info.imag1[0]}
-              fill
-              className={`object-cover transition-opacity duration-500 ${
-                hovered && info.imag1[1] ? "opacity-0" : "opacity-100"
-              }`}
-              onError={handleImageError}
-            />
+            <>
+              {/* Front Image */}
+              <Image
+                src={info.imag1[0]}
+                alt={info.heading}
+                fill
+                // sizes="(max-width: 768px) 100vw,"
+                className={`object-cover transition-opacity duration-500 ease-in-out ${
+                  hovered && info.imag1[1] ? "opacity-0" : "opacity-100"
+                }`}
+                onError={handleImageError}
+              />
+              {/* Back Image */}
+              {info.imag1[1] && (
+                <Image
+                  src={info.imag1[1]}
+                  alt={`${info.heading} back`}
+                  fill
+                  className={`object-cover transition-opacity duration-500 ease-in-out ${
+                    hovered ? "opacity-100" : "opacity-0"
+                  }`}
+                  onError={handleImageError}
+                />
+              )}
+            </>
           ) : (
-            // Fallback if image fails to load
-            <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-              <span className="text-gray-500">No Image</span>
+            <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
+              No Image
             </div>
           )}
 
-          {/* Back Image (only render if provided) */}
-          {!imageError && info.imag1[1] && (
-            <Image
-              alt="product-back"
-              src={info.imag1[1]}
-              fill
-              className={`object-cover transition-opacity duration-500 ${
-                hovered ? "opacity-100" : "opacity-0"
-              }`}
-              onError={handleImageError}
-            />
-          )}
+          {/* Subtle Zoom Effect */}
+          <div
+            className={`absolute inset-0 transition-transform duration-500 ${
+              hovered ? "scale-110" : "scale-100"
+            }`}
+          />
         </div>
 
         {/* Product Info */}
-        <h1 className="text-lg font-medium">{info.heading}</h1>
-        <h1 className="text-gray-700">${info.price}</h1>
+        <div className="p-4 flex flex-col gap-2 text-center sm:text-left">
+          <h1 className="text-lg font-semibold text-gray-900 line-clamp-2 leading-snug hover:text-blue-600 transition-colors duration-200">
+            {info.heading}
+          </h1>
+          <p className="text-gray-700 font-semibold text-base sm:text-lg">
+            ${info.price}
+          </p>
+        </div>
       </div>
     </Link>
   );
