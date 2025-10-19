@@ -12,7 +12,7 @@ const LowerNav = () => {
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
 
   const dispatch = useDispatch();
-  
+
   const changeVisibility = () => {
     dispatch(toggleSearchBar());
   };
@@ -30,7 +30,33 @@ const LowerNav = () => {
     "Books",
     "Toys",
     "Games",
-    "Automotive"
+    "Automotive",
+    "Computers",
+    "Arts",
+    "Automotive",
+    "Baby",
+    "Beauty",
+    // Women's Fashion
+    // Men's Fashion
+    // Girls' Fashion
+    // Boys' Fashion
+    "Women",
+    "Boys",
+    "Girls",
+    "Mens",
+    "Health",
+    "Home",
+    "Industrial",
+    "Scientific",
+    "Luggage",
+    "Movies",
+    "Pet",
+    "Software",
+    "Sports",
+    "Outdoors",
+    "Tools",
+    "Toys",
+    "Games",
   ];
 
   // const deals = [
@@ -54,16 +80,19 @@ const LowerNav = () => {
           <div className="text-[#33383c] font-bold tracking-wide text-lg lg:text-xl">
             Shopygram
           </div>
-          
+
           <nav>
             <ul className="flex text-[#33383c] justify-center items-center gap-4 lg:gap-6 font-medium text-sm lg:text-base">
               {/* Categories Dropdown */}
-              <li 
+              <li
                 className="relative cursor-pointer hover:text-black transition-colors"
                 onMouseEnter={() => setCategoriesOpen(true)}
                 onMouseLeave={() => setCategoriesOpen(false)}
               >
-                <Link href={"/category/categoryType"} className="flex items-center gap-1">
+                <Link
+                  href={"/category/categoryType"}
+                  className="flex items-center gap-1"
+                >
                   Categories
                   {/* <ChevronDown size={16} /> */}
                 </Link>
@@ -74,7 +103,10 @@ const LowerNav = () => {
                         key={index}
                         className="px-4 py-2 hover:bg-gray-100 transition-colors cursor-pointer text-sm"
                       >
-                        <Link href={`/category/${category}`} className="block w-full">
+                        <Link
+                          href={`/category/${category}`}
+                          className="block w-full"
+                        >
                           {category}
                         </Link>
                       </div>
@@ -84,7 +116,6 @@ const LowerNav = () => {
               </li>
 
               {/* Deals Dropdown */}
-           
 
               {/* <Link href={"/PremuimProduct"} className="cursor-pointer hover:text-black transition-colors whitespace-nowrap">
                 Premium Products
@@ -93,13 +124,19 @@ const LowerNav = () => {
               <Link href={"/blog"} className="cursor-pointer hover:text-black transition-colors">
                 Blog
               </Link> */}
-              
-              <li onClick={changeVisibility} className="cursor-pointer hover:text-black transition-colors flex items-center gap-1">
+
+              <li
+                onClick={changeVisibility}
+                className="cursor-pointer hover:text-black transition-colors flex items-center gap-1"
+              >
                 {/* <Search size={16} /> */}
                 Search
               </li>
-              
-              <Link href={"/contact"} className="cursor-pointer hover:text-black transition-colors">
+
+              <Link
+                href={"/contact"}
+                className="cursor-pointer hover:text-black transition-colors"
+              >
                 Support
               </Link>
             </ul>
@@ -112,7 +149,7 @@ const LowerNav = () => {
             <div className="text-[#33383c] font-bold tracking-wide text-lg truncate">
               Shopygram
             </div>
-            
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-md hover:bg-white/50 transition-colors flex-shrink-0"
@@ -129,18 +166,18 @@ const LowerNav = () => {
                 {/* Mobile Categories Dropdown */}
                 <li className="border-b border-gray-200/50 pb-2">
                   <button
-                    onClick={() => toggleMobileDropdown('categories')}
+                    onClick={() => toggleMobileDropdown("categories")}
                     className="flex items-center justify-between w-full py-2 hover:text-black transition-colors text-left"
                   >
                     <span className="font-medium">Categories</span>
-                    <ChevronDown 
-                      size={16} 
+                    <ChevronDown
+                      size={16}
                       className={`transform transition-transform ${
-                        mobileDropdown === 'categories' ? 'rotate-180' : ''
+                        mobileDropdown === "categories" ? "rotate-180" : ""
                       }`}
                     />
                   </button>
-                  {mobileDropdown === 'categories' && (
+                  {mobileDropdown === "categories" && (
                     <div className="mt-2 space-y-1 bg-white/50 rounded-lg p-2 mx-1">
                       {categories.map((category, index) => (
                         <Link
