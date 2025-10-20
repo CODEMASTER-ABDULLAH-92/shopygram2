@@ -23,10 +23,5 @@ async function dbConnect(): Promise<void> {
   }
 }
 
-// export default dbConnect(); ❌ This is Wrong Way;
 
 export default dbConnect;
-
-// export default dbConnect ✅ (function reference)
-
-// export default dbConnect() ❌ (executes once, exports a promise)
