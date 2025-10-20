@@ -6,8 +6,8 @@ export async function DELETE(
   request: Request,
   context: { params: Promise<{ id: string }> }
 ) {
+  await dbConnect();
   try {
-    await dbConnect();
 
     const { id } = await context.params;
 
