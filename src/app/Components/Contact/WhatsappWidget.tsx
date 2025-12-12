@@ -70,7 +70,7 @@ export const WhatsAppWidget: React.FC = () => {
       {/* Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-10 z-40"
+          className="fixed inset-0  bg-opacity-10 z-40"
           onClick={() => setIsOpen(false)}
         />
       )}

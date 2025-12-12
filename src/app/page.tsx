@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
-
+import im from '../../public/w1.png'
 import OurStory from "./Components/OurStory";
 import BestSeller from "./Components/BestSeller";
 import Footer from "./Components/Footer";
@@ -25,6 +25,8 @@ import TrendingProductsCarousel from "./Components/Carousel";
 // import NewsletterSignupCompact from "./Components/NewsLetter";
 import type { RootState } from "@/app/lib/store"; // adjust path
 import TrustedByMarquee from "./Components/Logo";
+import Blogs from "./Components/Blogs";
+import NewsletterSignupCompact from "./Components/NewsLetter";
 
 export default function Home() {
   const imgRef = useRef(null);
@@ -181,14 +183,13 @@ const showSearch = useSelector((state: RootState) => state.variable.showSearchBa
         <DiscoverCollection />
         <RefineCasual />
         <Testimonilas />
-        {/* <Blogs /> */}
+        <Blogs />
         <Services />
         <Pictures />
         <TrendingProductsCarousel />
         <TrustedByMarquee/>
-        {/* <NewsletterSignupCompact /> */}
+        <NewsletterSignupCompact />
       </div>
-      
       <Footer />
     </div>
   );
